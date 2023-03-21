@@ -3,7 +3,7 @@ let GENERATED_COMMENT = '# GENERATED NULIB PATH'
 let nu_path = (^which nu)
 
 if ((open $nu.config-path | lines | find $GENERATED_COMMENT | length) == 0) {
-#    $"\nalias nu=\"git -C (pwd) pull -q && ($nu_path) (pwd)/pre.nu && ($nu_path)\"\n" | save -a ~/.bashrc
+    $"\nalias nu=\"git -C (pwd) pull -q && ($nu_path) (pwd)/pre.nu && ($nu_path)\"\n" | save -a ~/.bashrc
     "\n# GENERATED NULIB PATH\n" | save -a $nu.config-path
     $"source (pwd)/($GENERATED_FILE_NAME)\n" | save -a $nu.config-path
 }
